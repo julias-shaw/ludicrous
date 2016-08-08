@@ -1,0 +1,2 @@
+defmodule Ludicrous do
+end
