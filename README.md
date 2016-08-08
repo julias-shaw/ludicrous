@@ -1,16 +1,21 @@
 # Ludicrous
 
-**TODO: Add description**
+The ludicrous plugin takes the extreme practice of continuous delivery to a new extreme... perhaps even a ludicrous one.
+
+Every time a file is saved the unit test suite is run and, if the tests pass, the code is committed and pushed to git. Ideally this will trigger a continuous delivery server to validate the code and push it to production. In actual usage this has resulted in 20-50 production releases per hour.
+
+Currently this approach, and this plugin, are designed to work on projects with only a single committer. Plans to support teams doing ludicrous delivery are in the works but it will be some time before team support is released.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `ludicrous` to your list of dependencies in `mix.exs`:
+  1. Add `ludicrous` along with `test.watch` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:ludicrous, "~> 0.1.0"}]
+      [
+        {:ludicrous, github: "julias-shaw/ludicrous", only: [:dev, :test]},
+        {:mix_test_watch, "~> 0.2.6", only: :dev},
+      ]
     end
     ```
 
@@ -22,3 +27,12 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
+  3. Configure `test.watch` to run stale tests and invoke the ludicrous plugin after a successful test run.
+
+    ```elixir
+    config :mix_test_watch,
+      tasks: [
+        "test --stale",
+        "ludicrous",
+      ]
+    ```
