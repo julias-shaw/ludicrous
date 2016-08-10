@@ -9,7 +9,7 @@ defmodule Mix.Tasks.Ludicrous do
     IO.puts "Ludicrous Mode Engaged!"
     IO.puts "\tMix environment: #{Mix.env}"
     System.cmd("git", ["add", "-A"])
-    IO.puts "\tCommitting with message #{@commit_message}"
+    IO.puts "\tCommitting with message \"#{@commit_message}\""
     System.cmd("git", ["commit", "-m", @commit_message])
     IO.puts "\tChecking remote repo (#{@domain}) availability..."
     {_, result_code } = System.cmd("ping", ["-c", "1", "-q", @domain])
