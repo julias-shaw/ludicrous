@@ -36,3 +36,12 @@ Currently this approach, and this plugin, are designed to work on projects with 
         "ludicrous",
       ]
     ```
+
+  4. Optionally configure your remote repo to check network availability and a custom commit message. The remote repo defaults to github.com so you do not need to set it if that is where your repo lives. The commit message defaults to "Ludicrous mode commit!" if you don't configure something else.
+
+    ```elixir
+    config :ludicrous,
+      commit_message: "Custom commit message goes here",
+      domain: "example.com"
+
+    ```
