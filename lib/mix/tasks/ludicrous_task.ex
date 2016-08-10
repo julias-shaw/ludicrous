@@ -8,7 +8,7 @@ defmodule Mix.Tasks.Ludicrous do
   def run(_) do
     IO.puts "Ludicrous Mode Engaged!"
     System.cmd("git", ["add", "-A"])
-    IO.puts "Committing wiht message #{@commit_message}"
+    IO.puts "Committing with message #{@commit_message}"
     System.cmd("git", ["commit", "-m", @commit_message])
     IO.puts "Checking remote repo (#{@domain}) availability..."
     {_, result_code } = System.cmd("ping", ["-c", "1", "-q", @domain])
