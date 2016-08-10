@@ -7,7 +7,7 @@ defmodule Mix.Tasks.Ludicrous do
   @shortdoc "Ludicrous mode commits and pushes automatically."
   def run(_) do
     IO.puts "Ludicrous Mode Engaged!"
-    IO.puts "Mix environment: #{Mix.env}"
+    IO.puts "\tMix environment: #{Mix.env}"
     System.cmd("git", ["add", "-A"])
     IO.puts "\tCommitting with message #{@commit_message}"
     System.cmd("git", ["commit", "-m", @commit_message])
