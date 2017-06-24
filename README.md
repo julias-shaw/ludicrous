@@ -10,38 +10,37 @@ Currently this approach, and this plugin, are designed to work on projects with 
 
   1. Add `ludicrous` along with `test.watch` to your list of dependencies in `mix.exs`:
 
-    ```elixir
-    def deps do
-      [
-        {:ludicrous, github: "julias-shaw/ludicrous", only: [:dev, :test]},
-        {:mix_test_watch, "~> 0.2.6", only: :dev},
-      ]
-    end
-    ```
+```elixir
+def deps do
+  [
+    {:ludicrous, github: "julias-shaw/ludicrous", only: [:dev, :test]},
+    {:mix_test_watch, "~> 0.2.6", only: :dev},
+  ]
+end
+```
 
   2. Ensure `ludicrous` is started before your application:
 
-    ```elixir
-    def application do
-      [applications: [:ludicrous]]
-    end
-    ```
+```elixir
+def application do
+  [applications: [:ludicrous]]
+end
+```
 
   3. Configure `test.watch` to run stale tests and invoke the ludicrous plugin after a successful test run.
 
-    ```elixir
-    config :mix_test_watch,
-      tasks: [
-        "test --stale",
-        "ludicrous",
-      ]
-    ```
+```elixir
+config :mix_test_watch,
+  tasks: [
+    "test --stale",
+    "ludicrous",
+  ]
+```
 
   4. Optionally configure your remote repo to check network availability and a custom commit message. The remote repo defaults to github.com so you do not need to set it if that is where your repo lives. The commit message defaults to "Ludicrous mode commit!" if you don't configure something else.
 
-    ```elixir
-    config :ludicrous,
-      commit_message: "Custom commit message goes here",
-      domain: "example.com"
-
-    ```
+```elixir
+config :ludicrous,
+  commit_message: "Custom commit message goes here",
+  domain: "example.com"
+```
