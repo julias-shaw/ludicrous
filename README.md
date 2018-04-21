@@ -4,7 +4,7 @@ The ludicrous plugin takes the extreme practice of continuous delivery to a new 
 
 Every time a file is saved the unit test suite is run and, if the tests pass, the code is committed and pushed to git. Ideally this will trigger a continuous delivery server to validate the code and push it to production. In actual usage this has resulted in 20-50 production releases per hour.
 
-Currently this approach, and this plugin, are designed to work on projects with only a single committer. Plans to support teams doing ludicrous delivery are in the works but it will be some time before team support is released.
+Currently this approach, and this plugin, are designed to work on projects with only a single committer.
 
 ## Installation
 
