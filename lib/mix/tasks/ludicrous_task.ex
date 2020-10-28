@@ -16,7 +16,7 @@ defmodule Mix.Tasks.Ludicrous do
     case result_code do
       0 ->
         IO.puts "\t\tPushing to remote repo"
-        System.cmd("git", ["push", "origin", "master"])
+        System.cmd("git", ["push"])
       _ ->
         IO.puts("\t\tNetwork not available - Not pushing :(")
     end
